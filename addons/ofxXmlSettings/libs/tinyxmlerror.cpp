@@ -40,7 +40,7 @@ const char* TiXmlBase::errorString[ TIXML_ERROR_STRING_COUNT ] =
 	"Error parsing Element.",
 	"Failed to read Element name",
 	"Error reading Element value.",
-	"Error reading AttriFbutes.",
+	"Error reading Attributes.",
 	"Error: empty tag.",
 	"Error reading end tag.",
 	"Error parsing Unknown.",
