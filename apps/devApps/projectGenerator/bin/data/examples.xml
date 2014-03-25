@@ -1,0 +1,10 @@
+<generate_examples>
+	<win_CB_projects>0</win_CB_projects>
+	<win_VS_projects>0</win_VS_projects>
+	<linux_CB_projects>0</linux_CB_projects>
+	<linux64_CB_projects>0</linux64_CB_projects>
+	<linuxarmv6l_CB_projects>0</linuxarmv6l_CB_projects>
+	<linuxarmv7l_CB_projects>0</linuxarmv7l_CB_projects>
+	<osx_projects>1</osx_projects>
+	<ios_projects>0</ios_projects>
+</generate_examples>
