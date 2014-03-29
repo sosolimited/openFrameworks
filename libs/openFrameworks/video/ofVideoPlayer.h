@@ -20,6 +20,11 @@
 	#define OF_VID_PLAYER_TYPE ofQTKitPlayer
 #endif
 
+#ifdef OF_VIDEO_PLAYER_DIRECTSHOW
+	#include "ofDirectShowPlayer.h"
+	#define OF_VID_PLAYER_TYPE ofDirectShowPlayer
+#endif
+
 #ifdef OF_VIDEO_PLAYER_IOS
 	#include "ofxiOSVideoPlayer.h"
 	#define OF_VID_PLAYER_TYPE ofxiOSVideoPlayer

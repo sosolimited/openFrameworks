@@ -277,24 +277,27 @@ typedef TESSindex ofIndexType;
 
 //------------------------------------------------  video player
 // check if any video player system is already defined from the compiler
-#if !defined(OF_VIDEO_PLAYER_GSTREAMER) && !defined(OF_VIDEO_PLAYER_IOS) && !defined(OF_VIDEO_PLAYER_QUICKTIME)
+#if !defined(OF_VIDEO_PLAYER_GSTREAMER) && !defined(OF_VIDEO_PLAYER_QUICKTIME) && !defined(OF_VIDEO_PLAYER_DIRECTSHOW) && !defined(OF_VIDEO_PLAYER_ANDROID) && !defined(OF_VIDEO_PLAYER_IOS)
 	#ifdef TARGET_LINUX
 		#define OF_VIDEO_PLAYER_GSTREAMER
+
+	 #elif defined(TARGET_OSX)
+		//for 10.7 and 10.8 users we use QTKit for 10.6 users we use QuickTime
+		#ifndef MAC_OS_X_VERSION_10_7
+			#define OF_VIDEO_PLAYER_QUICKTIME
+		#else
+			#define OF_VIDEO_PLAYER_QTKIT
+		#endif
+
+	#elif defined(TARGET_WIN32)
+		#define OF_VIDEO_PLAYER_DIRECTSHOW
+
 	#elif defined(TARGET_ANDROID)
 		#define OF_VIDEO_PLAYER_ANDROID
-	#else
-		#ifdef TARGET_OF_IOS
-			#define OF_VIDEO_PLAYER_IOS
-        #elif defined(TARGET_OSX)
-			//for 10.7 and 10.8 users we use QTKit for 10.6 users we use QuickTime
-			#ifndef MAC_OS_X_VERSION_10_7
-				#define OF_VIDEO_PLAYER_QUICKTIME
-			#else
-				#define OF_VIDEO_PLAYER_QTKIT
-			#endif
-		#elif !defined(TARGET_ANDROID)
-			#define OF_VIDEO_PLAYER_QUICKTIME
-		#endif
+
+	#elif defined(TARGET_OF_IOS)
+		#define OF_VIDEO_PLAYER_IOS
+
 	#endif
 #endif
 

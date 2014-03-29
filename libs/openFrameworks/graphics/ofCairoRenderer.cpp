@@ -1,3 +1,5 @@
+#ifndef _WIN64
+
 #include "ofCairoRenderer.h"
 #include "ofGraphics.h"
 #include "ofConstants.h"
@@ -1334,3 +1336,5 @@ ofBuffer & ofCairoRenderer::getContentBuffer(){
 	}
 	return streamBuffer;
 }
+
+#endif

@@ -57,9 +57,6 @@
     <ClInclude Include="..\..\..\openFrameworks\sound\ofSoundStream.h">
       <Filter>libs\openFrameworks\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\openFrameworks\video\ofQtUtils.h">
-      <Filter>libs\openFrameworks\video</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\openFrameworks\video\ofVideoGrabber.h">
       <Filter>libs\openFrameworks\video</Filter>
     </ClInclude>
@@ -171,9 +168,6 @@
     <ClInclude Include="..\..\..\openFrameworks\graphics\ofBitmapFont.h">
       <Filter>libs\openFrameworks\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\openFrameworks\graphics\ofCairoRenderer.h">
-      <Filter>libs\openFrameworks\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\openFrameworks\graphics\ofGraphics.h">
       <Filter>libs\openFrameworks\graphics</Filter>
     </ClInclude>
@@ -234,12 +228,6 @@
     <ClInclude Include="..\..\..\openFrameworks\sound\ofFmodSoundPlayer.h">
       <Filter>libs\openFrameworks\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\openFrameworks\video\ofQuickTimePlayer.h">
-      <Filter>libs\openFrameworks\video</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\openFrameworks\video\ofQuickTimeGrabber.h">
-      <Filter>libs\openFrameworks\video</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\openFrameworks\types\ofParameter.h">
       <Filter>libs\openFrameworks\types</Filter>
     </ClInclude>
@@ -267,6 +255,12 @@
     <ClInclude Include="..\..\..\openFrameworks\utils\ofXml.h">
       <Filter>libs\openFrameworks\utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\openFrameworks\video\ofDirectShowPlayer.h">
+      <Filter>libs\openFrameworks\video</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\openFrameworks\graphics\ofCairoRenderer.h">
+      <Filter>libs\openFrameworks\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\openFrameworks\app\ofAppGlutWindow.cpp">
@@ -280,9 +274,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\openFrameworks\sound\ofSoundStream.cpp">
       <Filter>libs\openFrameworks\sound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\openFrameworks\video\ofQtUtils.cpp">
-      <Filter>libs\openFrameworks\video</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\openFrameworks\video\ofVideoGrabber.cpp">
       <Filter>libs\openFrameworks\video</Filter>
@@ -365,9 +356,6 @@
     <ClCompile Include="..\..\..\openFrameworks\graphics\ofBitmapFont.cpp">
       <Filter>libs\openFrameworks\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\openFrameworks\graphics\ofCairoRenderer.cpp">
-      <Filter>libs\openFrameworks\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\openFrameworks\graphics\ofGraphics.cpp">
       <Filter>libs\openFrameworks\graphics</Filter>
     </ClCompile>
@@ -419,12 +407,6 @@
     <ClCompile Include="..\..\..\openFrameworks\math\ofVec2f.cpp">
       <Filter>libs\openFrameworks\math</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\openFrameworks\video\ofQuickTimeGrabber.cpp">
-      <Filter>libs\openFrameworks\video</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\openFrameworks\video\ofQuickTimePlayer.cpp">
-      <Filter>libs\openFrameworks\video</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\openFrameworks\types\ofParameter.cpp">
       <Filter>libs\openFrameworks\types</Filter>
     </ClCompile>
@@ -457,6 +439,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\openFrameworks\utils\ofXml.cpp">
       <Filter>libs\openFrameworks\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openFrameworks\video\ofDirectShowPlayer.cpp">
+      <Filter>libs\openFrameworks\video</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openFrameworks\graphics\ofCairoRenderer.cpp">
+      <Filter>libs\openFrameworks\graphics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
