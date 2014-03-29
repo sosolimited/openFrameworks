@@ -688,7 +688,7 @@ class DirectShowVideo : public ISampleGrabberCB{
 		if( bVideoOpened ){
 
 			long eventCode = 0;
-#ifdef _WIN64
+#ifdef TARGET_64_BIT
 			long long ptrParam1 = 0;
 			long long ptrParam2 = 0;
 #else
