@@ -1,5 +1,6 @@
 #pragma once
 
+#ifndef _WIN64
 
 #include "cairo-features.h"
 #include "cairo-pdf.h"
@@ -182,3 +183,5 @@ private:
 	ofBuffer streamBuffer;
 	ofPixels imageBuffer;
 };
+
+#endif
