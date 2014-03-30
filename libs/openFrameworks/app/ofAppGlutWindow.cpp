@@ -14,7 +14,7 @@
 #ifdef TARGET_OSX
     #include <OpenGL/OpenGL.h>
 	#include "../../../libs/glut/lib/osx/GLUT.framework/Versions/A/Headers/glut.h"
-	#include <Carbon/Carbon.h>
+    #include <Cocoa/Cocoa.h>
 #endif
 #ifdef TARGET_LINUX
 	#include <GL/glut.h>
@@ -364,6 +364,7 @@ void ofAppGlutWindow::setWindowIcon(const ofPixels & iconPixels){
 
 	XChangeProperty(m_display, m_window, XInternAtom(m_display, "_NET_WM_ICON", False), XA_CARDINAL, 32,
 						 PropModeReplace,  (const unsigned char*)buffer,  length);
+	delete[] buffer;
 	XFlush(m_display);
 }
 #endif
@@ -583,7 +584,7 @@ void ofAppGlutWindow::display(void){
 				glutFullScreen();
 
 				#ifdef TARGET_OSX
-					SetSystemUIMode(kUIModeAllHidden,NULL);
+					[NSApp setPresentationOptions:NSApplicationPresentationHideMenuBar | NSApplicationPresentationHideDock];
 					#ifdef MAC_OS_X_VERSION_10_7 //needed for Lion as when the machine reboots the app is not at front level
 						if( ofGetFrameNum() <= 10 ){  //is this long enough? too long?
 							ProcessSerialNumber psn;							
@@ -608,7 +609,7 @@ void ofAppGlutWindow::display(void){
 				//----------------------------------------------------
 
 				#ifdef TARGET_OSX
-					SetSystemUIMode(kUIModeNormal,NULL);
+					[NSApp setPresentationOptions:NSApplicationPresentationDefault];
 				#endif
 			}
 			bNewScreenMode = false;
