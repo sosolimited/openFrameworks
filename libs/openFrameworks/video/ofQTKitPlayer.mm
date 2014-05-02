@@ -1,3 +1,4 @@
+#ifdef OF_VIDEO_PLAYER_QTKIT
 
 #include "ofQTKitPlayer.h"
 
@@ -468,3 +469,4 @@ void ofQTKitPlayer::updateTexture(){
 	}
 }
 
+#endif
