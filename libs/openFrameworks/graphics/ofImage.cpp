@@ -543,9 +543,12 @@ ofImage_<PixelType>::ofImage_(){
 	bpp							= 0;
 	type						= OF_IMAGE_UNDEFINED;
 	bUseTexture					= true;		// the default is, yes, use a texture
+	destroyPixelsFlag 			= false; //soso
 
 	//----------------------- init free image if necessary
 	ofInitFreeImage();
+
+
 
 }
 
@@ -557,6 +560,7 @@ ofImage_<PixelType>::ofImage_(const ofPixels_<PixelType> & pix){
 	bpp							= 0;
 	type						= OF_IMAGE_UNDEFINED;
 	bUseTexture					= true;		// the default is, yes, use a texture
+	destroyPixelsFlag 			= false; //soso
 
 	//----------------------- init free image if necessary
 	ofInitFreeImage();
@@ -572,6 +576,7 @@ ofImage_<PixelType>::ofImage_(const ofFile & file){
 	bpp							= 0;
 	type						= OF_IMAGE_UNDEFINED;
 	bUseTexture					= true;		// the default is, yes, use a texture
+	destroyPixelsFlag 			= false; //soso
 
 	//----------------------- init free image if necessary
 	ofInitFreeImage();
@@ -587,6 +592,7 @@ ofImage_<PixelType>::ofImage_(const string & filename){
 	bpp							= 0;
 	type						= OF_IMAGE_UNDEFINED;
 	bUseTexture					= true;		// the default is, yes, use a texture
+	destroyPixelsFlag 			= false; //soso
 
 	//----------------------- init free image if necessary
 	ofInitFreeImage();
@@ -633,13 +639,13 @@ void ofImage_<PixelType>::reloadTexture(){
 
 //----------------------------------------------------------
 template<typename PixelType>
-bool ofImage_<PixelType>::loadImage(const ofFile & file){
-	return loadImage(file.getAbsolutePath());
+bool ofImage_<PixelType>::loadImage(const ofFile & file, bool destroyPixels){
+	return loadImage(file.getAbsolutePath(), destroyPixels);
 }
 
 //----------------------------------------------------------
 template<typename PixelType>
-bool ofImage_<PixelType>::loadImage(string fileName){
+bool ofImage_<PixelType>::loadImage(string fileName, bool destroyPixels){
 #if defined(TARGET_ANDROID) || defined(TARGET_OF_IOS)
 	registerImage(this);
 #endif
@@ -655,12 +661,13 @@ bool ofImage_<PixelType>::loadImage(string fileName){
 			tex.setRGToRGBASwizzles(true);
 		}
 	}
+	destroyPixelsFlag = destroyPixels; //soso
 	update();
 	return bLoadedOk;
 }
 
 template<typename PixelType>
-bool ofImage_<PixelType>::loadImage(const ofBuffer & buffer){
+bool ofImage_<PixelType>::loadImage(const ofBuffer & buffer, bool destroyPixels){
 #if defined(TARGET_ANDROID) || defined(TARGET_OF_IOS)
 	registerImage(this);
 #endif
@@ -676,6 +683,7 @@ bool ofImage_<PixelType>::loadImage(const ofBuffer & buffer){
 			tex.setRGToRGBASwizzles(true);
 		}
 	}
+  destroyPixelsFlag = destroyPixels; //soso
 	update();
 	return bLoadedOk;
 }
@@ -923,6 +931,13 @@ void ofImage_<PixelType>::update(){
 			}
 		}
 		tex.loadData(pixels);
+
+		//soso testing killing pixel data in memory
+		if(destroyPixelsFlag) {
+			if (pixels.isAllocated()) {
+				pixels.clear();
+			}
+		}
 	}
 }
 

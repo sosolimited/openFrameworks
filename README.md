@@ -48,18 +48,7 @@ We also have a developer's mailing list, which is useful for discussing issues a
 Developers
 ------
 
-To grab a copy of openFrameworks for your platform, check the [download page](http://openframeworks.cc/download) on the main site.  
- 
-If you are working with the Git repository, the `stable` branch of the OF repository corresponds to the most recent release, with a few important differences:  
-
-1. The release includes a simple openFrameworks project generator.
-2. This GitHub repository contains code and libs for all the platforms, but the releases are done on a per-platform basis.
-3. This GitHub repository has no project files for the different examples. They are generated automatically for each release using a tool in `apps/devApps/projectGenerator/`.
-
-If you want to work with the openFrameworks GitHub repository, you should use the project generator to create project files for all the code in `examples/`.  
-For per-platform readmes, and more informations, see the [documentation](docs/table_of_contents.md).
-
-To set up the project generator submodule, use the command `git submodule init` then `git submodule update` whilst inside the openFrameworks repo.
+This repository stores versions of openFrameworks customized for Sosolimited projects. Development is primarily for OSX, so unlike the offical OFX releases, any enhancements are not guaraanteed to be cross-platform.
 
 Versioning
 ----------
