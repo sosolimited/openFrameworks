@@ -848,7 +848,6 @@
 		E4B27C1610CBEB8E00536013 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../lib/osx/";
 				COPY_PHASE_STRIP = NO;
@@ -885,14 +884,12 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworksDebug;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		E4B27C1710CBEB8E00536013 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../lib/osx/";
 				COPY_PHASE_STRIP = YES;
@@ -931,7 +928,6 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworks;
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -939,12 +935,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E432815F138AC0470047C5CB /* Debug.xcconfig */;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../lib/osx/";
 				CONFIGURATION_TEMP_DIR = "$(SRCROOT)/../../lib/osx/build/debug/";
 				OBJROOT = "$(SRCROOT)/../../lib/osx/build/debug/";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -952,12 +947,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4328160138AC04A0047C5CB /* Release.xcconfig */;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../lib/osx/";
 				CONFIGURATION_TEMP_DIR = "$(SRCROOT)/../../lib/osx/build/release/";
 				OBJROOT = "$(SRCROOT)/../../lib/osx/build/release";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
