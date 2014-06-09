@@ -550,9 +550,6 @@ void ofTexture::loadData(const void * data, int w, int h, int glFormat, int glTy
 		if(!ofGetGLProgrammableRenderer()){
 			glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 		}
-#ifndef TARGET_OPENGLES		
-		glTexParameteri(texData.textureTarget, GL_GENERATE_MIPMAP_SGIS, true);
-#endif
 		glTexParameteri( texData.textureTarget, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri( texData.textureTarget, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glTexParameteri( texData.textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -560,38 +557,9 @@ void ofTexture::loadData(const void * data, int w, int h, int glFormat, int glTy
 		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 2);
 		
 		
-#ifndef TARGET_OPENGLES		
-		//using sRGB compression
-		if (texData.compressionType == OF_COMPRESS_SRGB)
-		{
-			if(texData.glTypeInternal == GL_RGBA)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_SRGB_ALPHA, w, h, glFormat, glType, data);
-			
-			else if(texData.glTypeInternal == GL_RGB)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_SRGB_ALPHA, w, h, glFormat, glType, data);
-			
-			else if(texData.glTypeInternal == GL_LUMINANCE_ALPHA)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_SRGB_ALPHA, w, h, glFormat, glType, data);
-			
-			else if(texData.glTypeInternal == GL_LUMINANCE)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_SRGB_ALPHA, w, h, glFormat, glType, data);
-		}
-		
-		//using ARB compression: default
-		else
-		{
-			if(texData.glTypeInternal == GL_RGBA)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_RGBA_ARB, w, h, glFormat, glType, data);
-			
-			else if(texData.glTypeInternal == GL_RGB)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_RGB_ARB, w, h, glFormat, glType, data);
-			
-			else if(texData.glTypeInternal == GL_LUMINANCE_ALPHA)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_LUMINANCE_ALPHA_ARB, w, h, glFormat, glType, data);
-			
-			else if(texData.glTypeInternal == GL_LUMINANCE)
-				gluBuild2DMipmaps(texData.textureTarget, GL_COMPRESSED_LUMINANCE_ARB, w, h, glFormat, glType, data);
-		}
+#ifndef TARGET_OPENGLES
+        glTexParameteri(texData.textureTarget, GL_GENERATE_MIPMAP, GL_TRUE);
+        glTexSubImage2D(texData.textureTarget, 0, 0, 0, w, h, glFormat, glType, data);
 #endif
 		
 
