@@ -136,39 +136,39 @@ public:
 // ofPtr
 //----------------------------------------------------------
 template <typename T>
-class ofPtr: public std::shared_ptr<T>
+class ofPtr: public ::std::tr1::shared_ptr<T>
 {
 
 public:
 
 	ofPtr()
-	  : std::shared_ptr<T>() { }
+	  : ::std::tr1::shared_ptr<T>() { }
 
 	  template<typename Tp1>
 		explicit
 		ofPtr(Tp1* __p)
-	: std::shared_ptr<T>(__p) { }
+	: ::std::tr1::shared_ptr<T>(__p) { }
 
 	  template<typename Tp1, typename _Deleter>
 		ofPtr(Tp1* __p, _Deleter __d)
-	: std::shared_ptr<T>(__p, __d) { }
+	: ::std::tr1::shared_ptr<T>(__p, __d) { }
 
 	  template<typename Tp1, typename _Deleter, typename _Alloc>
 		ofPtr(Tp1* __p, _Deleter __d, const _Alloc& __a)
-	: std::shared_ptr<T>(__p, __d, __a) { }
+	: ::std::tr1::shared_ptr<T>(__p, __d, __a) { }
 
 	  // Aliasing constructor
 	  template<typename Tp1>
 		ofPtr(const ofPtr<Tp1>& __r, T* __p)
-	: std::shared_ptr<T>(__r, __p) { }
+	: ::std::tr1::shared_ptr<T>(__r, __p) { }
 
 	  template<typename Tp1>
 		ofPtr(const ofPtr<Tp1>& __r)
-	: std::shared_ptr<T>(__r) { }
+	: ::std::tr1::shared_ptr<T>(__r) { }
 
 	  template<typename Tp1>
-		ofPtr(const std::shared_ptr<Tp1>& __r)
-	: std::shared_ptr<T>(__r) { }
+		ofPtr(const ::std::tr1::shared_ptr<Tp1>& __r)
+	: ::std::tr1::shared_ptr<T>(__r) { }
 
 	  /*ofPtr(ofPtr&& __r)
 	  : std::tr1::shared_ptr<T>(std::move(__r)) { }
@@ -179,8 +179,8 @@ public:
 
 	  template<typename Tp1>
 		explicit
-		ofPtr(const std::weak_ptr<Tp1>& __r)
-	: std::shared_ptr<T>(__r) { }
+		ofPtr(const ::std::tr1::weak_ptr<Tp1>& __r)
+	: ::std::tr1::shared_ptr<T>(__r) { }
 
 	// tgfrerer: extends ofPtr facade to allow dynamic_pointer_cast, pt.1
 #if (_MSC_VER)
@@ -190,7 +190,7 @@ public:
 #else
 	template<typename Tp1>
 	ofPtr(const ofPtr<Tp1>& __r, std::__dynamic_cast_tag)
-	: std::shared_ptr<T>(__r, std::__dynamic_cast_tag()) { }
+	: ::std::tr1::shared_ptr<T>(__r, std::__dynamic_cast_tag()) { }
 #endif
 	  /*template<typename Tp1, typename Del>
 		explicit
