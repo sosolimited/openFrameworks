@@ -329,7 +329,7 @@ void ofxAssimpModelLoader::clear(){
 
     scale = ofPoint(1, 1, 1);
 	if(scene){
-		aiReleaseImport(scene);
+		//aiReleaseImport(scene);
 		scene = NULL;
 	}
     normalizeScale = true;
