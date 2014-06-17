@@ -1404,6 +1404,9 @@ public:
 	void operator=( const TiXmlDocument& copy );
 
 	virtual ~TiXmlDocument() {}
+    
+    
+    
 
 	/** Load a file using the current document value.
 		Returns true if successful. Will delete any existing

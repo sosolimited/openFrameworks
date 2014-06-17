@@ -123,9 +123,9 @@ class ofImage_ : public ofBaseImage_<PixelType>{
 		void unbind();
 
 		// file loading / saving
-		bool 				loadImage(string fileName);
-		bool				loadImage(const ofBuffer & buffer);
-		bool 				loadImage(const ofFile & file);
+		bool 				loadImage(string fileName, bool destroyPixels=true);
+		bool				loadImage(const ofBuffer & buffer, bool destroyPixels=true);
+		bool 				loadImage(const ofFile & file, bool destroyPixels=true);
 		void 				saveImage(string fileName, ofImageQualityType compressionLevel = OF_IMAGE_QUALITY_BEST);
 		void 				saveImage(ofBuffer & buffer, ofImageQualityType compressionLevel = OF_IMAGE_QUALITY_BEST);
 		void 				saveImage(const ofFile & file, ofImageQualityType compressionLevel = OF_IMAGE_QUALITY_BEST);
@@ -205,6 +205,8 @@ class ofImage_ : public ofBaseImage_<PixelType>{
 		ofPixels_<PixelType>		pixels;
 		bool						bUseTexture;
 		ofTexture					tex;
+  
+    bool        destroyPixelsFlag;
 
 };
 

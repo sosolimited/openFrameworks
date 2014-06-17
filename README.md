@@ -2,6 +2,11 @@
 ================
 openFrameworks is a C++ toolkit for creative coding
 
+
+NOTE
+This repository stores versions of openFrameworks customized for Sosolimited projects. Development is primarily for OSX, so unlike the offical OFX releases, any enhancements are not guaraanteed to be cross-platform.
+
+
 Download
 --------
 To grab a copy of openFrameworks for your platform, check the [download page](http://openframeworks.cc/download) on the main site.  
@@ -22,3 +27,4 @@ To set up the project generator submodule, use the command `git submodule init` 
 Versioning
 ----------
 openFrameworks uses [Semantic Versioning](http://semver.org/), although strict adherence will only come into effect at version 1.0.0.
+
