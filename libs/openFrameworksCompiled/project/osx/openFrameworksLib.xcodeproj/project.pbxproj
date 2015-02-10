@@ -868,7 +868,7 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworksDebug;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -913,7 +913,7 @@
 					"$(LIB_FMODEX)",
 				);
 				PRODUCT_NAME = openFrameworks;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
