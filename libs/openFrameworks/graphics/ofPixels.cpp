@@ -96,7 +96,7 @@ static size_t channelsFromPixelFormat(ofPixelFormat format){
 		return 2;
 		break;
 	default:
-		ofLog(OF_LOG_ERROR,"ofPixels: format doesn't support channels");
+//		ofLog(OF_LOG_ERROR,"ofPixels: format doesn't support channels");
 		return 1;
 	}
 }
@@ -290,7 +290,7 @@ void ofPixels_<PixelType>::set(size_t channel,PixelType val){
 		case OF_PIXELS_V:
 		case OF_PIXELS_UNKNOWN:
 		default:
-			ofLogWarning() << "setting channels not supported for " << ofToString(pixelFormat) << " format";
+//			ofLogWarning() << "setting channels not supported for " << ofToString(pixelFormat) << " format";
 			break;
 	}
 }
