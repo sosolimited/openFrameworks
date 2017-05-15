@@ -92,6 +92,14 @@ ofPoint		ofGetWindowSize();
 ofRectangle	ofGetWindowRect();
 ofAppBaseWindow * ofGetWindowPtr();
 
+//SOSO - Multiscreen
+void		ofSetNumScreens(int n);
+void		ofSetScreenIndex(int n);
+int			ofGetNumScreens();
+int			ofGetScreenIndex();
+void		ofSetScreenBezel(int n);
+int			ofGetScreenBezel();
+
 void 		ofSetWindowPosition(int x, int y);
 void 		ofSetWindowShape(int width, int height);
 void 		ofSetWindowTitle(string title);

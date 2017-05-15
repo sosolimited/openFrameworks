@@ -43,6 +43,14 @@ public:
 	virtual ofPoint	getWindowPosition() {return ofPoint(); }
 	virtual ofPoint	getWindowSize(){return ofPoint(); }
 	virtual ofPoint	getScreenSize(){return ofPoint(); }
+	
+	//SOSO - Multiscreen
+	virtual void	setNumScreens(int n) {}
+	virtual void	setScreenIndex(int n) {}
+	virtual int		getNumScreens() {return 1; }
+	virtual int		getScreenIndex() {return 0; }
+	virtual void	setScreenBezel(int n) {}
+	virtual int		getScreenBezel() {return 0;}
 
 	virtual void			setOrientation(ofOrientation orientation){ }
 	virtual ofOrientation	getOrientation(){ return OF_ORIENTATION_DEFAULT; }

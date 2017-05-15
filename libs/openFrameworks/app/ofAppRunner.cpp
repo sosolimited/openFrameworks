@@ -385,6 +385,36 @@ ofRectangle	ofGetWindowRect() {
 	return ofRectangle(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
 }
 
+//SOSO - Multiscreen--------------------
+void ofSetNumScreens(int n){
+	mainLoop()->getCurrentWindow()->setNumScreens(n);
+}
+
+//SOSO - Multiscreen--------------------
+void ofSetScreenIndex(int n){
+	mainLoop()->getCurrentWindow()->setScreenIndex(n);
+}
+
+//SOSO - Multiscreen--------------------
+int ofGetScreenIndex(){
+	return (int)mainLoop()->getCurrentWindow()->getScreenIndex();
+}
+
+//SOSO - Multiscreen--------------------
+int ofGetNumScreens(){
+	return (int)mainLoop()->getCurrentWindow()->getNumScreens();
+}
+
+//SOSO - Multiscreen--------------------
+void ofSetScreenBezel(int n) {
+	mainLoop()->getCurrentWindow()->setScreenBezel(n);
+}
+
+//SOSO - Multiscreen--------------------
+int	ofGetScreenBezel() {
+	return mainLoop()->getCurrentWindow()->getScreenBezel();
+}
+
 //--------------------------------------
 void ofSetWindowTitle(string title){
 	mainLoop()->getCurrentWindow()->setWindowTitle(title);

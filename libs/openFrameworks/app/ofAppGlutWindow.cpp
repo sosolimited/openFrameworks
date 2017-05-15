@@ -45,6 +45,12 @@ static int          nFramesSinceWindowResized;
 static ofOrientation	orientation;
 static ofAppGlutWindow * instance;
 
+//SOSO - multiscreen
+bool			bEnableSetupMultiScreen;
+int				nScreens;
+int				screenIndex;
+int				screenBezel;
+
 #ifdef TARGET_WIN32
 
 //------------------------------------------------
@@ -180,6 +186,11 @@ ofAppGlutWindow::ofAppGlutWindow(){
 	iconSet = false;
 	instance = this;
 	windowId = 0;
+	
+	//SOSO - multiscreen
+	nScreens			= 1;
+	screenIndex			= 0;
+	screenBezel			= 0;
 }
 
 //lets you enable alpha blending using a display string like:
@@ -464,6 +475,36 @@ void ofAppGlutWindow::setWindowShape(int w, int h){
 	requestedHeight = h;
 }
 
+//SOSO - Multiscreen--------------------
+void ofAppGlutWindow::setNumScreens(int n){
+	nScreens = n;
+}
+
+//SOSO - Multiscreen--------------------
+void ofAppGlutWindow::setScreenIndex(int n){
+	screenIndex = n;
+}
+
+//SOSO - Multiscreen--------------------
+int ofAppGlutWindow::getNumScreens(){
+	return nScreens;
+}
+
+//SOSO - Multiscreen--------------------
+int ofAppGlutWindow::getScreenIndex(){
+	return screenIndex;
+}
+
+//SOSO - Multiscreen--------------------
+void ofAppGlutWindow::setScreenBezel(int n){
+	screenBezel = n;
+}
+
+//SOSO - Multiscreen--------------------
+int ofAppGlutWindow::getScreenBezel(){
+	return screenBezel;
+}
+
 //------------------------------------------------------------
 void ofAppGlutWindow::hideCursor(){
 	#if defined(TARGET_OSX) && defined(MAC_OS_X_VERSION_10_7)
@@ -475,11 +516,11 @@ void ofAppGlutWindow::hideCursor(){
 
 //------------------------------------------------------------
 void ofAppGlutWindow::showCursor(){
-	#if defined(TARGET_OSX) && defined(MAC_OS_X_VERSION_10_7)
-		 CGDisplayShowCursor(0);
-	#else
-		glutSetCursor(GLUT_CURSOR_LEFT_ARROW);
-	#endif
+#if defined(TARGET_OSX) && defined(MAC_OS_X_VERSION_10_7)
+	CGDisplayShowCursor(0);
+#else
+	glutSetCursor(GLUT_CURSOR_LEFT_ARROW);
+#endif
 }
 
 //------------------------------------------------------------
@@ -490,25 +531,25 @@ ofWindowMode ofAppGlutWindow::getWindowMode(){
 //------------------------------------------------------------
 void ofAppGlutWindow::toggleFullscreen(){
 	if( windowMode == OF_GAME_MODE)return;
-
+	
 	if( windowMode == OF_WINDOW ){
 		windowMode = OF_FULLSCREEN;
 	}else{
 		windowMode = OF_WINDOW;
 	}
-
+	
 	bNewScreenMode = true;
 }
 
 //------------------------------------------------------------
 void ofAppGlutWindow::setFullscreen(bool fullscreen){
-    if( windowMode == OF_GAME_MODE)return;
-
-    if(fullscreen && windowMode != OF_FULLSCREEN){
-        bNewScreenMode  = true;
-        windowMode      = OF_FULLSCREEN;
-    }else if(!fullscreen && windowMode != OF_WINDOW) {
-        bNewScreenMode  = true;
+	if( windowMode == OF_GAME_MODE)return;
+	
+	if(fullscreen && windowMode != OF_FULLSCREEN){
+		bNewScreenMode  = true;
+		windowMode      = OF_FULLSCREEN;
+	}else if(!fullscreen && windowMode != OF_WINDOW) {
+		bNewScreenMode  = true;
         windowMode      = OF_WINDOW;
     }
 }

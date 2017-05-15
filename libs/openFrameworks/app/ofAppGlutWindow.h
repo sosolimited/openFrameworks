@@ -48,6 +48,14 @@ public:
 	ofPoint		getWindowSize();
 	ofPoint		getScreenSize();
 	
+	//SOSO - Multiscreen
+	void		setNumScreens(int n);
+	void		setScreenIndex(int n);
+	int			getNumScreens();
+	int			getScreenIndex();
+	void		setScreenBezel(int n);
+	int			getScreenBezel();
+	
 	void			setOrientation(ofOrientation orientation);
 	ofOrientation	getOrientation();
 	
